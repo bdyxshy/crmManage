@@ -1,0 +1,6 @@
+JD.war为模拟京东商城web项目源码，需导入myeclipse
+shop.sql为项目所需数据库文件，需导入tomcat
+
+
+
+-- 作者QQ：4763852 --
