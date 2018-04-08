@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.CustomerDao">
+
+	<select id="searchAll" resultType="entity.Customer" >
+		select c.*,a.id as 'age.id',a.name as 'age.name' from customer as c inner join age as a on c.age_id=a.id
+	</select>
+	<select id="searchCount" resultType="int" >
+		select count(*) from customer as c inner join age as a on c.age_id=a.id
+	</select>
+	<select id="searchCountByCondition" resultType="int" >
+		select count(*) from customer as c inner join age as a on c.age_id=a.id where c.name like '%${name}%'
+	</select>
+	<select id="searchByPage" resultType="entity.Customer" >
+		select c.*,a.id as 'age.id',a.name as 'age.name' from customer as c inner join age as a on c.age_id=a.id 
+		limit #{0},#{1}
+	</select>
+	<select id="searchByCondition" resultType="entity.Customer" >
+		select c.*,a.id as 'age.id',a.name as 'age.name' from customer as c inner join age as a on c.age_id=a.id 
+		where c.name like '%${customer.name}%' limit #{begin},#{rows} 
+	</select>
+</mapper> 
+    
